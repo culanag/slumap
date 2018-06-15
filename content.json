@@ -1,0 +1,12 @@
+{
+    "foodplace": [{
+        "name": "View Deck Canteen",
+        "ulams": ["Honey Lemon Chicken", "Beef Broccoli", "Pork Tonkatsu", "Calderetang Alligator"]
+    }, {
+        "name": "Emerson's Canteen",
+        "ulams": ["Adobong Manok", "Mahal na Baboy", "Nilagang Baka", "Bulalo ng Sto. Tomas"]
+    }, {
+        "name": "Teacup Canteen",
+        "ulams": ["Pinapaitan", "Pinikpikan", "Omelete au Fromage", "Nosebleed ni Jules"]
+    }]
+}

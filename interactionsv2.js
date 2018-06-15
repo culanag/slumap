@@ -9,7 +9,65 @@ function switchDisplay(num) {
 	}
 }
 */
+//work
 
+/*window.onload = function() {
+	document.getElementById('go').addEventListener('click', loadPredefinedPanorama, false);
+};*/
+
+// Load the predefined panorama
+function loadPanorama(panorama) {
+	//evt.preventDefault();
+
+	
+	// Loader
+	var loader = document.createElement('div');
+	loader.className = 'loader';
+
+	//document.getElementById('sphere-container').innerHTML = "";
+	// Panorama display
+	var div = document.getElementById('sphere-container');
+	div.style.height = '30px';
+
+	var PSV = new PhotoSphereViewer({
+		// Path to the panorama
+		panorama: panorama,
+
+		// Container
+		container: div,
+		
+		// Deactivate the animation
+		time_anim: false,
+
+		// Display the navigation bar
+		navbar: true,
+		
+		keyboard: true,
+
+		// Resize the panorama
+		size: {
+			width: '100%',
+			height: '500px'
+		},
+
+		// HTML loader
+		loading_html: loader,
+		
+		move_inertia: false,
+
+		// Overlay
+		overlay: {
+			image: 'overlay.png',
+			size: {
+				width: '42px'
+			},
+			position: {
+				x: 'right',
+				y: 'top'
+			}
+		}
+	});
+}
 
 function setUp(q, response) {
 	var setup = document.getElementById("setup");
@@ -343,6 +401,9 @@ function pointOfInterestDetails(num, arrayIndex) {
 
 		// header
 		content += "<h3>" + obj.floor + " Floor</h3>";
+		
+		// work
+		/*content += */
 
 		if(nameContent.indexOf("|") >= 0) { // multiple items in the same floor
 			newText = nameContent.split("|");
@@ -354,13 +415,49 @@ function pointOfInterestDetails(num, arrayIndex) {
 		}
 
 	}
-	if(obj.image == ""){
-        	content += "<form action='upload.php' method='post' enctype='multipart/form-data'> Select image to upload: <input type='file' name='fileToUpload' id='fileToUpload'> <input type='submit' value='Upload Image' name='submit'></form>";
-        
-        
-    }else{
+	/**if(obj.image == ""){
+        	content += "<form action='uploadimage.php' method='post' enctype='multipart/form-data'> Select image to upload: <input type='file' name='fileToUpload' id='fileToUpload'> <input type='submit' value='Upload Image' name='submit'></form>";
+    } else {
         content += "<img src="+obj.image+" alt='sample'>";    
-    }
+	}*/
+	
+	//work
+	if(!obj.image == ""){
+		content += "<div class='row'>\
+		<div id='container-gallery'>\
+			<img src='"+obj.image[0]+"' onclick='openModal();currentSlide(1)' 	class='hover-shadow' alt='sample'>\
+			<h1 onclick='openModal();currentSlide(1)'>view gallery</h1>\
+	  	</div>\
+	  	<div id='container-360'>\
+			<img src='"+obj.image[1]+"' onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)' 	class='hover-shadow' alt='sample'>\
+			<h1 onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)'>view in 360</h1>\
+	 	 </div>\
+		</div>\
+		<div id='myModal' class='modal'>\
+	  	<span class='close cursor' onclick='closeModal()'>&times;</span>\
+	  	<div class='modal-content'>";
+	
+		for (c = 0; c < obj.image.length; c++) {
+	 	 content += "<div class='mySlides'>\
+		 	 <div class='caption'>"+obj.imageinfo[c]+"</div>\
+		  	<img class='display' src='"+obj.image[c]+"'>\
+			</div>";
+		}
+		content += "</div>\
+		<a class='prev' onclick='plusSlides(-1)'>&#10094;</a>\
+		<a class='next' onclick='plusSlides(1)'>&#10095;</a>\
+		</div>\
+		</div>\
+		<div id='my360' class='modal360'>\
+	  	<span class='close cursor' onclick='closeModal360()'>&times;</span>\
+	  	<div class='modal-content-360'>\
+	  		<div id='sphere-content'>\
+	  		<div id='sphere-container'></div>\
+	  		</div>\
+	 	 </div>\
+		</div>";
+	}
+	//work
 	// show the details of the point
 	document.getElementById("head").innerHTML = "Point Details";
 	document.getElementById("content").innerHTML = content;
@@ -368,8 +465,63 @@ function pointOfInterestDetails(num, arrayIndex) {
 	document.getElementById("details").setAttribute("class", "point");
 }
 
+//work
+function openModal() {
+	document.getElementById('myModal').style.display = "block";
+	document.getElementById('bar').style.display = "none";
+	//document.documentElement.requestFullscreen();
+	//screen.orientation.lock('landscape').then(null, function(error) {
+		//document.exitFullscreen()
+	//});
+  }
+  
+  function openModal360(panorama) {
+	  document.getElementById('my360').style.display = "block";
+	  document.getElementById('bar').style.display = "none";
+	  loadPanorama(panorama);
+  }
 
-
+  function closeModal360() {
+	document.getElementById('my360').style.display = "none";
+	document.getElementById('bar').style.display = "block";
+}
+  // Close the Modal
+  function closeModal() {
+	document.getElementById('myModal').style.display = "none";	
+	document.getElementById('bar').style.display = "block";
+	//document.exitFullscreen();
+  }
+  
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+	showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+	showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("demo");
+	var captionText = document.getElementById("caption");
+	if (n > slides.length) {slideIndex = 1}
+	if (n < 1) {slideIndex = slides.length}
+	for (i = 0; i < slides.length; i++) {
+	  slides[i].style.display = "none";
+	}
+	for (i = 0; i < dots.length; i++) {
+	  dots[i].className = dots[i].className.replace(" active", "");
+	}
+	slides[slideIndex-1].style.display = "block";
+	dots[slideIndex-1].className += " active";
+	captionText.innerHTML = dots[slideIndex-1].alt;
+  }
 
 // used by filterPoints
 var buildingFilter = 0;
@@ -420,8 +572,7 @@ function magnify(action) {
    		currentZoom -= 25;
     	zoomLevelText.value = currentZoom + "%";
     	document.getElementById("mapcontainer").setAttribute("style", "zoom: "+currentZoom/100+";");
-    }
-    
+    }    
     saveSettings();
 }
 

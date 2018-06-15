@@ -11,6 +11,9 @@ entry_exitv6.json
 labelsv2.json
 paths-v7.json
 poi-v6.json
+work.js
+photo-sphere-viewer.min.js
+three.min.js
 Dense.otf
 Quicksand.otf
 minus.png
@@ -19,7 +22,15 @@ settings.png
 about.png
 map.png
 0.jpg
+uploads/1.jpg
+uploads/2.jpg
+uploads/3.jpg
 4.jpg
 5.jpg
 6.jpg
+uploads/7.jpg
 logo.png
+close.png
+pano2.jpg
+pano1.jpg
+overlay.png

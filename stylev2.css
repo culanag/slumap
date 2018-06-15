@@ -56,7 +56,9 @@ body {
 }
 #setup img#logo{
 	display: block;
-	width: 70vw;
+	width: 35vw;
+    padding-bottom: .2em;
+    padding-top: .2em;
 	margin: 0 auto;
 	clear: both;
 }
@@ -198,9 +200,9 @@ div#options {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 70vw;
-	height: 45vh;
-	margin-left: -35vw;
+	width: 20vw;
+	height: auto;
+	margin-left: -12.5vw;
 	margin-top: -22.5vh;
 	background: #fff;
 	opacity: 0.9;
@@ -323,7 +325,7 @@ div#details {
 	height: 50vh;
 	margin-left: -35vw;
 	margin-top: -25vh;
-	background: #fff;
+	background-color: rgba(255, 255, 255, 0.95);
 	opacity: 1;
 	z-index: 1000;
 	text-align: center;
@@ -333,9 +335,11 @@ div#details {
 }
 
 div#details.point {
-	width: 70vw;
-	height: 60vh;
-	margin-left: -35vw;
+	width: 742px;
+	height: auto;
+    position: fixed;
+    z-index: 1000;
+	margin-left: -25.5vw;
 	margin-top: -25vh;
 }
 
@@ -365,7 +369,7 @@ input.edit, input.save {
 div#details h1 {
 	font-size: 1.5rem;
 	padding: 0.5rem 0 0 0;
-	margin: 0;
+	margin-top: 1em;
 	text-transform: uppercase;
 	font-weight: bold;
 }
@@ -377,7 +381,7 @@ div#details h3.entry {
 }
 div#details #content {
 	padding: 0;
-	margin: 0;
+	margin: 5px;
 	font-size: 1rem;
 	overflow-y: auto;
 }
@@ -388,6 +392,13 @@ div#details p {
 	font-size: 1.3rem;
 	font-weight: bold;
 }
+
+div#details input[type="image"] {
+	float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 div#details p.list {
 	margin: 0.1rem;
 }
@@ -420,4 +431,283 @@ div#details textarea.note {
 div#details textarea:disabled {
 	background: transparent;
 	color: #000;
+}
+
+/*work*/
+
+.row > .column {
+    padding: 0 8px;
+}
+
+.row:after {
+      content: "";
+      display: table;
+      clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */ 
+.column {
+  float: left;
+  width: 25%;
+}
+/* The Modal 360 */
+.modal360 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 75px;
+  left: 0;
+  top: -2rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 75px;
+  left: 0;
+  top: -2rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Content */ 
+.modal-content {
+  position: relative;
+  background-color: rgba(255,255,255,0.5);
+  margin: auto;
+  padding: 0;
+    width: 80%;
+    height: auto;    
+    left: 0;
+    top: 0;
+}
+
+.modal-content-360 {
+  position: relative;
+  background-color: transparent;
+  margin: auto;
+    margin-top: 3%;
+  padding: 0;
+    width: 100%;
+    height: auto;    
+    left: 0;
+    top: 0;
+}
+
+/* The Close Button */
+.close {
+  color: transparent;
+  position: absolute;
+    top: 5%;
+    right: 2%;
+  font-size: 5em;
+  font-weight: bold;
+    z-index: 1000000;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hide the slides by default */ 
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */ 
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    margin-left: -40%;
+    margin-right: 10%;
+    color: transparent;
+    font-size: 3.5em;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */ 
+.next {
+    right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  //background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Number text (1/3 etc) */
+.caption {
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width:100%;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2px 16px;
+  color: white;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0%;
+}
+
+.caption-container#caption p {
+    font-size: 100px;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+img.thumbnail {
+    width: 90%;
+}
+
+img.display {
+    width: 100%;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+/* Royette */
+div#details #container-gallery {
+    float:left
+}
+
+div#details #container-360 {
+    float:left
+}
+
+div#details #container-gallery img{
+    position: relative;
+    width: 350px; 
+    height: auto;
+    margin-bottom: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+div#details #container-360 img{
+    position: relative;
+    width: 350px; 
+    height: auto;
+    margin-bottom: .5em;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+div#details #container-gallery h1{
+    position:absolute;
+    color: white;
+    display: none;
+    cursor: pointer;
+    top: 58%; 
+    left: -24%; 
+    width: 100%; 
+}
+
+div#details #container-360 h1{
+    position:absolute;
+    color: white;
+    display: none;
+    cursor: pointer;
+    top: 58%; 
+    left: 25%; 
+    width: 100%; 
+}
+
+div#details #container-gallery:hover h1 {
+   display: block;
+   transition: .5s;
+}
+
+div#details #container-gallery:hover img {
+  filter: brightness(50%);
+  transition: .5s ease;
+}
+
+div#details #container-360:hover h1 {
+   display: block;
+   transition: .8 ease;
+}
+
+div#details #container-360:hover img {
+  filter: brightness(50%);
+  transition: .5s ease;
+}
+
+
+/* work */
+
+@keyframes spin {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+#sphere-content {
+	width: 70%;
+	max-width: 1000px;
+	margin: 0 auto;
+	line-height: 1.5em;
+	font-size: 1.1em;
+}
+
+#sphere-container, #your-pano {
+	width: 70%;
+	height: 0;
+	margin: 0 auto;
+}
+
+.loader {
+	margin: 0 auto;
+	width: 30px;
+	height: 30px;
+
+	border: 3px solid transparent;
+	border-top-color: #999;
+	border-radius: 50%;
+
+	animation: spin 0.8s ease infinite;
 }

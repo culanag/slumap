@@ -30,6 +30,9 @@
 	</script>
 	<script src="mapdatav2.js" type="text/javascript"></script>
 	<script src="interactionsv2.js" type="text/javascript"></script>
+    <script src="three.min.js"></script>
+    <script src="photo-sphere-viewer.min.js"></script>
+    <script src="work.js"></script>
 	<link rel="stylesheet" href="stylev2.css" />
 	<link rel="stylesheet" href="map-svg-relatedv2.css" />
 	<link rel="stylesheet" href="responsive.css" />
@@ -48,7 +51,7 @@
 	<input type="image" src="settings.png" title="settings" alt="settings" onclick="showSettings(1);" />
 	<input type="image" src="minus.png" title="zoom out" alt="zoom out" onclick="magnify(false);" />
 	<input type="image" src="plus.png" title="zoom in" alt="zoom in" onclick="magnify(true);" />
-	<input id="zoom" type="text" value="100%" />
+	<input id="zoom" type="text" value="100%" readonly="readonly" />
 	<input type="image" src="about.png" title="about" alt="about" onclick="showSettings(2);" style="float: right; margin-right: 10px;" />
 	<!--<input id="floor" type="text" value="" /> This is used by the pointsAtFloor function. -->
 </div>
@@ -119,6 +122,7 @@
 
  <!-- display:none in style.css-->
 <div id="details">
+    <input type="image" src="close.png"  onclick="this.parentNode.removeAttribute('style');" />
 	<h1 id="head">&nbsp;</h1>
 	<div id="content"></div>
 	<div id="textcontainer">
@@ -127,7 +131,7 @@
 	<input type="button" value="Edit" class='edit' onclick="notes(0); this.parentNode.childNodes[1].removeAttribute('disabled');" />
 	<input type="button" value="Save" class='save' onclick="notes(1); this.parentNode.childNodes[1].setAttribute('disabled', 'disabled');" />
 	</div>
-	<input type="button" value="Close" id="dismiss" onclick="this.parentNode.removeAttribute('style');" />
+	<!--input type="button" value="Close" id="dismiss" onclick="this.parentNode.removeAttribute('style');" /-->
 </div>
 
 <div id="setup">

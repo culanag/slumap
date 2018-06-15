@@ -1,6 +1,6 @@
 {
 
-	"BuildingFilters":[ // keywords = the values for the "building" attributes in the "Points" array
+	"BuildingFilters":[
 		{"keyword":"", "display":"No Filter"},
 		{"keyword":"Perfecto", "display":"Waldo Perfecto"},
 		{"keyword":"Silang", "display":"Diego Silang"},
@@ -14,7 +14,7 @@
 
 	],
 
-	"FloorFilters":[ // keywords = the values for the "floor" attributes in the "Points" array
+	"FloorFilters":[
 		{"keyword":"", "display":"No Filter"}, 
 		{"keyword":"Ground", "display":"Ground"},
 		{"keyword":"1st", "display":"1st Floor"},
@@ -26,7 +26,7 @@
 		{"keyword":"7th", "display":"7th Floor"}
 	],
 
-	"RoomFilters": [ // keywords = the values for the "class" attributes in the "Points" array
+	"RoomFilters": [
 		{"keyword":"", "display":"No Filter"}, 
 		{"keyword":"department", "display":"Departments"}, 
 		{"keyword":"faculty", "display":"Faculties"}, 
@@ -255,7 +255,7 @@
 		"x": "310", 
 		"y": "295",
 		"floor": "3rd",
-		"class": "other",
+		"class": "other"
 },
 { 
 		"pointname": "ICT Research Laboratory", 
@@ -263,7 +263,19 @@
 		"floor": "3rd",
 		"x": "324", 
 		"y": "299",
-		"class": "lab"
+		"class": "lab",
+		"image": [
+			"./uploads/2.jpg",
+			"./uploads/3.jpg",
+			"./uploads/7.jpg"
+		],
+		"imageinfo": [
+			"This is the caption",
+			"Caption goes here",
+			"Dynamic stuff in here",
+			"This is the ICTR Laboratory"
+		],
+		"panorama": "pano2.jpg"
 },
 { 
 		"pointname": "Students Affairs Office", 
@@ -272,8 +284,18 @@
 		"x": "256", 
 		"y": "308",
 		"class": "office",
-		"image": ""
-		
+		"image": [
+			"./uploads/7.jpg",
+			"./uploads/3.jpg",
+			"./uploads/2.jpg"
+		],
+		"imageinfo": [
+			"Caption goes here",
+			"Dito lalabas yung caption",
+			"Be dynamic kahit ano ilagay dito",
+			"SAO is where you go when late"
+		],
+		"panorama": "pano1.jpg"
 },
 { 
 		"pointname": "Faculty Room - CAD", 
