@@ -415,12 +415,7 @@ function pointOfInterestDetails(num, arrayIndex) {
 		}
 
 	}
-	/**if(obj.image == ""){
-        	content += "<form action='uploadimage.php' method='post' enctype='multipart/form-data'> Select image to upload: <input type='file' name='fileToUpload' id='fileToUpload'> <input type='submit' value='Upload Image' name='submit'></form>";
-    } else {
-        content += "<img src="+obj.image+" alt='sample'>";    
-	}*/
-	
+		
 	//work
 	if(!obj.image[0] == ""){
 		content += "<div class='row'>\

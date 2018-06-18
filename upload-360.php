@@ -8,7 +8,7 @@ if (isset($_POST['submit']))
     $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
     $file_ext = substr($filename, strripos($filename, '.')); // get file name
     $filesize = $_FILES["fileToUpload"]["size"];
-    $allowed_file_types = array('.doc','.docx','.rtf','.pdf','.jpg','.png');  
+    $allowed_file_types = array('gif','.jpeg','.jpg','.png');  
     $data = file_get_contents("poi-v6.json");
     $json_arr = json_decode($data, true);
 
@@ -24,7 +24,8 @@ if (isset($_POST['submit']))
         else
         {       
             move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
-            echo "File uploaded successfully.";    
+            echo "File uploaded successfully.";
+			echo "<br><a href='upload-360.html'>Upload another one.</a>";
             $poi = $_POST['poi']; 	
 				
 			foreach($json_arr["Points"] as &$value) {
@@ -45,17 +46,20 @@ if (isset($_POST['submit']))
     {   
         // file selection error
         echo "Please select a file to upload.";
+		echo "<br><a href='upload-360.html'>Try again.</a>";
     } 
     elseif ($filesize > 40000000)
     {   
         // file size error
         echo "The file you are trying to upload is too large.";
+		echo "<br><a href='upload-360.html'>Try again.</a>";
     }
     else
     {
         // file type error
-        echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
+        echo "Only these file types are allowed for upload: " . implode(', ',$allowed_file_types);
         unlink($_FILES["fileToUpload"]["tmp_name"]);
+		echo "<br><a href='upload-360.html'>Try again.</a>";
     }
 }
 
