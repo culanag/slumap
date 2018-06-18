@@ -4,10 +4,10 @@
 
 if (isset($_POST['submit']))
 {
-    $filename = $_FILES["file"]["name"];
+    $filename = $_FILES["fileToUpload"]["name"];
     $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
     $file_ext = substr($filename, strripos($filename, '.')); // get file name
-    $filesize = $_FILES["file"]["size"];
+    $filesize = $_FILES["fileToUpload"]["size"];
     $allowed_file_types = array('.doc','.docx','.rtf','.pdf','.jpg','.png');  
     $data = file_get_contents("poi-v6.json");
     $json_arr = json_decode($data, true);
@@ -23,26 +23,14 @@ if (isset($_POST['submit']))
         }
         else
         {       
-            move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $newfilename);
+            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
             echo "File uploaded successfully.";    
-            $poi = $_POST['poi']; 
-			$caption = $_POST['caption'];		
+            $poi = $_POST['poi']; 	
 				
 			foreach($json_arr["Points"] as &$value) {
 				if ($value['pointname'] == $poi) {
-					if(in_array("", $value['image'])) {
-						
-						array_pop($value['image']);
-						array_pop($value['imageinfo']);
-						array_push($value['image'], "./uploads/" . $newfilename);					
-						array_push($value['imageinfo'], $caption);	
-						
-					} else {
-						
-						array_push($value['image'], "./uploads/" . $newfilename);					
-						array_push($value['imageinfo'], $caption);		
-						
-					}
+					
+					$value['panorama'] = "./uploads/" . $newfilename;
 					
 					file_put_contents("manifest.appcache", "\nuploads/" . $newfilename, FILE_APPEND);
 				}
@@ -67,7 +55,7 @@ if (isset($_POST['submit']))
     {
         // file type error
         echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
-        unlink($_FILES["file"]["tmp_name"]);
+        unlink($_FILES["fileToUpload"]["tmp_name"]);
     }
 }
 

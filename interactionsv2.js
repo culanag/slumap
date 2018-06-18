@@ -422,17 +422,21 @@ function pointOfInterestDetails(num, arrayIndex) {
 	}*/
 	
 	//work
-	if(!obj.image == ""){
+	if(!obj.image[0] == ""){
 		content += "<div class='row'>\
 		<div id='container-gallery'>\
 			<img src='"+obj.image[0]+"' onclick='openModal();currentSlide(1)' 	class='hover-shadow' alt='sample'>\
 			<h1 onclick='openModal();currentSlide(1)'>view gallery</h1>\
-	  	</div>\
-	  	<div id='container-360'>\
-			<img src='"+obj.image[1]+"' onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)' 	class='hover-shadow' alt='sample'>\
-			<h1 onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)'>view in 360</h1>\
-	 	 </div>\
-		</div>\
+	  	</div>";
+		
+		if(!obj.panorama == "") {
+			content += "<div id='container-360'>\
+				<img src='"+obj.image[0]+"' onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)' 	class='hover-shadow' alt='sample'>\
+				<h1 onclick='openModal360(\""+obj.panorama+"\");currentSlide(1)'>view in 360</h1>\
+			 </div>";
+		}
+		
+		content += "</div>\
 		<div id='myModal' class='modal'>\
 	  	<span class='close cursor' onclick='closeModal()'>&times;</span>\
 	  	<div class='modal-content'>";
