@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
 
  	 $image = "./uploads/" . $newfilename;
  	 $caption = $_POST['caption'];
+ 	 file_put_contents("manifest.appcache", "\nuploads/" . $newfilename, FILE_APPEND);
  }
 
  if (in_array($file_ext_360,$allowed_file_types) && ($filesize_360 < 40000000)) {
@@ -36,6 +37,7 @@ if (isset($_POST['submit'])) {
  	move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename_360);
 
  	$panorama = "./uploads/" . $newfilename_360;
+ 	file_put_contents("manifest.appcache", "\nuploads/" . $newfilename_360, FILE_APPEND);
  }
 	echo "Successfully added " . $pointname . " at " . $building . "!";
 	echo "<br><a href='addpoi.html'>Go back</a>";
