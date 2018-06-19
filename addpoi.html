@@ -1,0 +1,77 @@
+<style>
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+</Style>
+
+
+<div id="coords" style="color: red;width: 768px; height: 1205px; margin: 0px; padding: 0px; background: url(map/map.svg) center center no-repeat scroll;">
+Click anywhere on the map to mark the new point-of-interest.
+If problems occur, set your browser to fullscreen view or zoom out the view.
+</div>
+
+<script>
+    document.getElementById("coords").onclick = userClicked;
+
+    function userClicked() {
+        var x = event.clientX;// - window.pageXOffset;
+        var y = event.clientY + window.pageYOffset;
+
+        //var top  = window.pageYOffset || document.documentElement.scrollTop,
+        //left = window.pageXOffset || document.documentElement.scrollLeft;
+
+        var snowball = document.getElementById("circle");
+        document.getElementById("coords").innerHTML = "x=" + x + "<br> y=" + y;
+        document.getElementById("x").value = x;
+        document.getElementById("y").value = y;
+        snowball.style.position = "absolute";
+        snowball.style.left = (x-5)  + 'px';
+        snowball.style.top = (y-5) + 'px';
+    }
+</script>
+
+<div id="circle" style="width: 10px; height: 10px; border: 1px solid red; background: red; border-radius: 10px; cursor: arrow;"></div>
+
+<div id="form-container" style="position: absolute; right: 100; top: 50;">
+        <h1>Point-of-Interest maker</h1>
+        <form action="addpoi.php" method="post" enctype="multipart/form-data">
+            Point Name: <input type="text" name="pointname"><br>
+            Select the building:
+            <select name="building" id="buidling">
+                <option value="Perfecto">Waldo Perfecto</option>
+                <option value="Silang">Diego Silang</option>
+                <option value="DH">De Haes</option>
+                <option value="Aden">Conrad Adenaur</option>
+                <option value="BernhardGym">Prince Bernhard Gym</option>
+                <option value="Vath">Charles Vath</option>
+                <option value="Rizal">Jose P. Rizal</option>
+                <option value="Hahn">Otto Hahn</option>
+                <option value="Outdoors">Outdoors</option>
+            </select>
+            <br>
+            Select the floor:
+            <select name="floor" id="floor">
+                <option value="Ground">Ground Floor</option>
+                <option value="1st">1st Floor</option>
+                <option value="2nd">2nd Floor</option>
+                <option value="3rd">3rd Floor</option>
+                <option value="4th">4th Floor</option>
+                <option value="5th">5th Floor</option>
+                <option value="6th">6th Floor</option>
+                <option value="7th">7th Floor</option>
+            </select>
+            <input type="hidden" id="x" name="x" value="">
+            <input type="hidden" id="y" name="y" value="">
+            <br><br>
+            Select image for POI:
+            <input type="file" name="file" id="file">
+            <br>
+            <textarea name="caption" rows="4" cols="40" placeholder="Enter image caption"></textarea>
+            <br><br>
+            Select 360 image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <br><br>
+            <input type="submit" value="Add new Point-of-Interest" name="submit">
+        </form>
+</div>
