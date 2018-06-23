@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<style>
+			a:link, a:visited {
+				color: rgb(50,50,50);
+				font-family: sans-serif;
+				text-decoration: none;
+				padding: 12px 16px;
+			}
+			nav {
+				text-align: center;
+			}
+			a:hover {
+				transition: 0.2s ease;
+				color: black;
+			}
+		</style>
+		<script src="upload.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				try {
+					loadPOIS(poisdata["Points"]);
+				} catch(e) {
+					//TODO
+				}
+			}
+		</script>
+		<nav>
+		<a href="addpoi.html">Add POI</a>
+		<a href="removepoi.html">Remove POI</a>
+		<a href="upload.html">Add Image to POI Gallery</a>
+		<a href="upload-360.html">Add 360-image to POI</a>
+	</nav>
+	<hr>
+		<h1>Point-of-Interest Delete Tool</h1>
+		<p>Delete tool for POI</p>
+		<form action="removepoi.php" method="post" enctype="multipart/form-data">
+			Select the point-of-interest:
+			<select name="poi" id="poiselect"></select>
+			<br><br>
+			
+			<input type="submit" value="Remove POI" name="submit">
+		</form>
+		<br>
+	</body>
+</html>

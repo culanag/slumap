@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<body>
+		<nav>
+		<a href="addpoi.html">Add POI</a>
+		<a href="removepoi.html">Remove POI</a>
+		<a href="upload.html">Add Image to POI Gallery</a>
+		<a href="upload-360.html">Add 360-image to POI</a>
+	</nav>
+	<hr>
 		<style>
-			body {
-				margin: 100px 300px;
-				font-family: Cambria;
+			a:link, a:visited {
+				color: rgb(50,50,50);
+				font-family: sans-serif;
+				text-decoration: none;
+				padding: 12px 16px;
 			}
-			
-			@media screen and (max-width: 600px) {
-				body {
-					margin: 0;
-				}
+			nav {
+				text-align: center;
+			}
+			a:hover {
+				transition: 0.2s ease;
+				color: black;
 			}
 		</style>
 		<script src="upload.js" type="text/javascript"></script>
@@ -44,11 +54,6 @@
 			<br><br>
 			<input type="submit" value="Upload Image" name="submit">
 		</form>
-		<br>
-		<br>
-		<br>
-		<p>or</p>
-		<a href=upload-360.html>Upload 360 photos</a>
 		<script src="upload.js" type="text/javascript"></script>
 	</body>
 </html>

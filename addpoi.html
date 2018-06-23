@@ -3,8 +3,27 @@ html, body {
 	margin: 0px;
 	padding: 0px;
 }
-</Style>
-
+	a:link, a:visited {
+				color: rgb(50,50,50);
+				font-family: sans-serif;
+				text-decoration: none;
+				padding: 12px 16px;
+			}
+			nav {
+				text-align: center;
+				float: right;
+			}
+			a:hover {
+				transition: 0.2s ease;
+				color: black;
+			}
+</style>
+<nav>
+		<a href="addpoi.html">Add POI</a>
+		<a href="removepoi.html">Remove POI</a>
+		<a href="upload.html">Add Image to POI Gallery</a>
+		<a href="upload-360.html">Add 360-image to POI</a>
+	</nav>
 
 <div id="coords" style="color: red;width: 768px; height: 1205px; margin: 0px; padding: 0px; background: url(map/map.svg) center center no-repeat scroll;">
 Click anywhere on the map to mark the new point-of-interest.
