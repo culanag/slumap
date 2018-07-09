@@ -589,12 +589,16 @@
             "y": "299",
             "class": "lab",
             "image": [
-                ""
+                ".\/uploads\/ca5f31880a61ae2c1da71853470e3991.jpg",
+                ".\/uploads\/db236f1c4c70a0589f3c368a727049eb.jpg",
+                ".\/uploads\/5fd8e3c2a0edc06cf6e5f68a37f17b26.jpg"
             ],
             "imageinfo": [
-                ""
+                "OJT Students working in the ICTR Laboratory",
+                "Another view of students working in the ICTR Laboratory",
+                "ICTR Laboratory in Maryheights Campus"
             ],
-            "panorama": ""
+            "panorama": ".\/uploads\/a1a44427359d4577ce3c4f7ec8ca42dd.jpg"
         },
         {
             "pointname": "Students Affairs Office",
@@ -604,6 +608,9 @@
             "y": "308",
             "class": "office",
             "image": [
+                ""
+            ],
+            "smallimage": [
                 ""
             ],
             "imageinfo": [
@@ -2208,6 +2215,21 @@
                 ""
             ],
             "panorama": ""
+        },
+        {
+            "pointname": "Party party",
+            "building": "Outdoors",
+            "floor": "Ground",
+            "x": "332",
+            "y": "484",
+            "class": "Miscellaneous",
+            "image": [
+                ".\/uploads\/b2dc89c86da11ccb3e79487edf812fcf.jpg"
+            ],
+            "imageinfo": [
+                "Party party"
+            ],
+            "panorama": ".\/uploads\/a5cb6cfd21e0afc592a06b279d743e9b.jpg"
         }
     ]
 }

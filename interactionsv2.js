@@ -32,6 +32,7 @@ function loadPanorama(panorama) {
 	var PSV = new PhotoSphereViewer({
 		// Path to the panorama
 		panorama: panorama,
+		caption: 'This is the ICTR',
 
 		// Container
 		container: div,
@@ -441,6 +442,19 @@ function pointOfInterestDetails(num, arrayIndex) {
 		 	 <div class='caption'>"+obj.imageinfo[c]+"</div>\
 		  	<img class='display' src='"+obj.image[c]+"'>\
 			</div>";
+			/*content += "<div class='mySlides'>\
+		 	 <div class='caption'>"+obj.imageinfo[c]+"</div>";
+		 	 if (obj.smallimage[c]) {
+		 	 	content += "<picture>\
+		 	 <source media='(min-width: 600px)' srcset='"+obj.image[c]+"'>\
+		 	 <img class='display' src='"+obj.smallimage[c]+"'>\
+		 	 </picture>\
+			</div>";
+		 	 } else {
+		 	 	content += "<img class='display' src='"+obj.image[c]+"'>\
+							</div>";
+		 	 }*/
+		 	 
 		}
 		content += "</div>\
 		<a class='prev' onclick='plusSlides(-1)'>&#10094;</a>\
