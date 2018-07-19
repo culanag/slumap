@@ -564,7 +564,7 @@ div#details textarea:disabled {
   font-size: 2em;
   position: absolute;
   bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     width:100%;
 }
 
@@ -677,6 +677,10 @@ div#details #container-360:hover img {
   transition: .5s ease;
 }
 
+div#details p#pointcaption {
+	font-size: 1.2rem;
+	font-weight:600;
+}
 
 /* work */
 

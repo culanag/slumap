@@ -34,3 +34,34 @@ function loadPOIS(array) {
 		select.appendChild(option);
 	}
 }
+
+function loadPOI() {
+	var chosen = document.getElementById("poiselect");
+	var poi = chosen.options[chosen.selectedIndex].text;
+	
+	console.log(poi);
+	var array = poisdata["Points"];
+	var container = document.getElementById("poi-container");
+	var imageGallery = document.getElementById("imageGallery");
+	for (var d = 0; d < array.length; d++) {
+		if (poi == (array[d].building+" - "+array[d].pointname)) {
+			console.log(array[d].pointname);
+			console.log(array[d].building);
+			console.log(array[d].floor);
+			console.log(array[d].description);
+			console.log(array[d].image);
+			document.getElementById("pointnameInput").value = array[d].pointname;
+			document.getElementById("buildingInput").value = array[d].building;
+			document.getElementById("floorInput").value = array[d].floor;	
+			document.getElementById("descriptionInput").innerHTML = array[d].description;
+			document.getElementById("coords").innerHTML = "x=" + array[d].x + "<br> y=" + array[d].y;
+			var snowball = document.getElementById("circle");
+			snowball.style.position = "absolute";
+        	snowball.style.left = ((array[d].x)-5)  + 'px';
+        	snowball.style.top = ((array[d].y)-5) + 'px';
+			document.getElementById("x").value = array[d].x;
+        	document.getElementById("y").value = array[d].y;
+			
+		}
+	}
+}

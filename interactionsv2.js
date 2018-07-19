@@ -30,33 +30,19 @@ function loadPanorama(panorama) {
 	div.style.height = '30px';
 
 	var PSV = new PhotoSphereViewer({
-		// Path to the panorama
 		panorama: panorama,
-		caption: 'This is the ICTR',
-
-		// Container
 		container: div,
-		
-		// Deactivate the animation
 		time_anim: false,
-
-		// Display the navigation bar
 		navbar: true,
-		
 		keyboard: true,
-
-		// Resize the panorama
 		size: {
 			width: '100%',
 			height: '500px'
 		},
 
-		// HTML loader
-		loading_html: loader,
 		
+		loading_html: loader,
 		move_inertia: false,
-
-		// Overlay
 		overlay: {
 			image: 'overlay.png',
 			size: {
@@ -414,7 +400,10 @@ function pointOfInterestDetails(num, arrayIndex) {
 		} else {
 			content += "<p id='pointName'>" + nameContent + "</p>";
 		}
-
+		
+		if(!obj.description == "") {
+			content += "<p id='pointcaption'>"+obj.description+"</p>";
+		}
 	}
 		
 	//work

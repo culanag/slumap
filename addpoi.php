@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
 	$x = $_POST['x'];
 	$y = $_POST['y'];
 	$class = "Miscellaneous";
+	$description = $_POST['description'];
 	$image = [];
 	$caption = [];
 	$panorama = "";
@@ -51,6 +52,7 @@ if (isset($_POST['submit'])) {
     $newPoint['x'] = $x;
     $newPoint['y'] = $y;
     $newPoint['class'] = $class;
+	$newPoint['description'] = $description;
     $newPoint['image'] = [$image];
     $newPoint['imageinfo'] = [$caption];
     $newPoint['panorama'] = $panorama;
